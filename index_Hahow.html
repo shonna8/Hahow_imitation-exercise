@@ -1,0 +1,2893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hahow 好學校</title>
+    <link rel="stylesheet" href="./bootstrap-4.2.1-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        .row {
+            position: relative;
+            /* outline: 1px solid ; */
+        }
+       /* .container {
+           outline: 1px solid blue;
+       } */
+
+
+        /* -----0.下面是 header------ */
+        header {
+            width: 100%;
+            height: 50px;
+            /* outline: 1px solid purple; */
+            position: fixed;
+            /* margin-left: 186px; */
+            background-color: #fff;
+            z-index: 1;           
+        }
+        header img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .navbar {
+            width: 100%;
+            /* border: 1px solid red; */
+            height: 50px;
+            margin: auto;
+        }
+        .logo {
+            height: 34px;
+            /* border: 1px solid green; */
+        }
+        .joinus {
+            height: 44px;
+            margin-left: 10px;
+            margin-top: -12px;
+            /* border: 1px solid green; */
+            display: none;
+        }
+        .mobile-btn {
+            color: rgba(0, 0, 0, 0.65);
+            position: absolute;
+            right: 10px;
+
+        }
+        
+
+        .navbar-row-left, .navbar-row-right {
+            margin-top: 5px;
+            /* border: 1px solid red; */
+        }
+        .navbar-row-left {
+            display: none;
+        }
+        .navbar-row-right {
+            /* border: 1px solid green; */
+            margin-right: 2%;
+        }
+        .navbar-row-left a, .navbar-row-right a {
+            font-size: 16px;
+            color: rgba(0, 0, 0, 0.65);
+            /* border: 1px solid blue; */
+        }
+        .navbar-row-left a:hover, .navbar-row-right a:hover {
+            color: rgba(0, 0, 0, 0.85);
+            text-decoration: none;
+        }
+        
+        .presentaition svg {
+            margin-top: -4px;
+            margin-left: 5px;
+        }
+        .chart img {
+            margin-top: -4px;
+            padding-right: 10px;
+            /* border: 1px solid red; */
+        }
+        .login {
+            display: none;
+        }
+       
+        
+
+        /* -----1.下面是 主畫面----- */
+        .BigBanner {
+            position: relative;
+            padding-bottom: 50px;
+            /* border: 1px solid red; */
+            overflow: hidden;
+        }
+        .BigBanner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }        
+        .bg-left {
+            width: 270px;
+            position: absolute;
+            top: 450px;
+            left: -50px;
+            display: none;
+        }        
+        
+        .bg-top {
+            width: 480px;
+            position: absolute;
+            top: 50px;
+            right: -270px;
+        }
+        .bg-bottom {
+            width: 425px;
+            position: absolute;
+            right: -160px;
+            top: 710px;
+            display: none;
+        }
+        .BigBanner-screen {
+            width: 100%;
+            height: 550px;
+            /* border: 1px solid red; */
+            position: relative;
+        }
+        
+        .decoration {
+            width: 285px;
+            position: absolute;
+            right: 0px;
+            top: 55px;
+        }        
+        .TVchannel {
+            width: 138px;
+            position: absolute;
+            right: 155px;
+            top: 95px;
+        }
+        .monster-king {
+            width: 170px;
+            height: 170px;
+            position: absolute;
+            right: 40px;
+            top: 145px;
+
+            animation-name: monster-king-move;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+        }
+        @keyframes monster-king-move {
+            0% {
+                transform: translate(0,0);
+            }
+            50% {
+                transform: translate(0,-15px);
+            }
+            100% {
+                transform: translate(0,0);
+            }
+        }
+        
+        .playball {
+            width: 60px;
+            height: 60px;
+            position: absolute;
+            right: -36px;
+            top: 270px;
+            transition: .5s;
+        }
+        .playball:hover {
+            transform: rotate(30deg);
+        }
+
+        /* -----左邊slogan+搜尋----- */        
+        .slogan {
+            /* border: 1px solid blue; */
+            position: absolute;
+            left: 100px;
+            top: 350px;
+        }        
+        .slogan h1 {
+            font-size: 18px;
+            line-height: 31px;
+            font-weight: 600;
+            color: rgba(0, 0, 0, 0.87);
+        }
+        .slogan span {
+            color: rgb(0, 190, 164);
+        }        
+        .slogan span::before {
+            width: 105px;
+            height: 10px;
+            background-color: rgb(255, 238, 88);
+            content: "";
+            position: absolute;
+            left: 83px;
+            top: 16px;
+            z-index: -1;
+        }
+       
+        .learn-search {
+            width: 90%;
+            position: absolute;
+            left: 20px;
+            top: 430px;
+        }
+        .learn-search form {
+            width: 100%;
+            height: 50px;
+            background-color: rgb(247, 247, 245);
+            border-radius: 4px;
+        }
+        .learn-search form i {
+            color: rgba(0, 0, 0, 0.43);
+            padding: 18px 15px 0;
+        }
+        .learn-search form input {
+            width: calc(100% - 52px);
+            height: 40px;
+            border: transparent;
+            background-color: rgb(247, 247, 245)
+        }
+
+        .hashtag-keyword {
+            /* border: 1px solid red; */
+            margin-top: 20px;
+        }
+        .hashtag-keyword a {
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 20px;
+            color: rgb(0, 190, 164);
+            border-radius: 16px;
+            background-color: rgba(46, 225, 179, 0.1);
+            padding: 6px 12px;
+            margin: 0px 4.5px 8px;
+        }
+        .hashtag-keyword a:hover {
+            text-decoration: none;
+            color: #fff;
+            background-color: rgb(0, 190, 164);
+        }
+
+        
+
+        /* -----下面是 學習指標----- */        
+        .learn-goal-card {
+            width: 90%;
+            margin: auto;
+            /* border: 1px solid red; */
+            text-align: center;
+            margin-top: 20px;
+
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .learn-goal-card h2 {
+            width: 100%;
+            /* border: 1px solid red; */
+            font-size: 16px;
+            color: rgb(250, 139, 0);
+            font-weight: 500;            
+        }
+                
+        .learn-goal-imgwrap {
+            width: 120px;
+            /* margin: auto; */
+            /* border: 1px solid green; */
+            position: relative;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        .learn-goal-imgwrap .picture {
+            width: 100%;
+        }
+        
+        .learn-goal-imgwrap .monster {
+            width: 50px;
+            height: 40px;
+            object-fit: cover;
+            /* border: 1px solid blue; */
+            position: absolute;
+            right: 0;
+            bottom: -5px;
+        }
+        
+        .learn-goal-card h3 {
+            width: 60%;
+            /* border: 1px solid red; */
+            font-size: 14px;
+            font-weight: 400;
+            color: rgba(0, 0, 0, 0.45);
+            line-height: 21px;
+            margin-left: 10px;
+            margin-top: 20px;
+            text-align: left;
+
+        }
+        
+        .learn-goal-imgwrap .monster2 {
+            width: 60px;
+            height: 65px;
+            /* border: 1px solid blue; */
+            position: absolute;
+            right: -15px;
+            top: 40px;
+        }
+
+        
+        .learn-goal-imgwrap .monster3 {
+            width: 70px;
+            height: 65px;
+            /* border: 1px solid red; */
+            position: absolute;
+            top: 45px;
+            left: 0;
+        }
+
+
+
+        /* -----2.下面是 每週嚴選推薦----- */        
+        .Week-classes {
+            margin-top: -50px;
+            padding-bottom: 50px;
+            /* border: 1px solid red; */
+            overflow: hidden;
+            /* pointer-events: none; */
+        }
+        .Good-classes {
+            pointer-events: none;
+        }
+        
+        .Good-classes h4, .Week-classes h4, .StudentSay h4 {
+            width: 100%;
+            font-size: 18px;
+            font-weight: 600;
+            color: rgba(0, 0, 0, 0.65);
+            margin-top: 50px;
+            text-align: center;
+        }
+        .Good-classes p, .Week-classes p, .StudentSay p {
+            font-size: 14px;
+            color: rgba(0, 0, 0, 0.65);
+            width: 100%;
+            text-align: center;
+            padding-bottom: 10px;
+        }
+        .Good-classes span, .Week-classes span, .StudentSay span {
+            font-size: 16px;
+            color: rgb(0, 190, 164);
+            font-weight: 600;
+            margin: 0px 4px;
+        }
+        
+        .Week-class-banner {
+            width: 300px;
+            height: 320px;
+            /* border: 1px solid red; */
+            position: relative;
+            /* pointer-events: none; */
+        }
+
+        /* -----左右箭頭在手機版是 隱藏的！----- */
+        .btn-left, .btn-right, .btn-left1, .btn-right1 {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #fff;
+            /* border: 1px solid blue; */
+
+            /* display: flex;
+            justify-content: center;
+            align-items: center; */
+
+            cursor: pointer;
+            box-shadow: 0px 3px 5px #ddd; 
+            transition: .3s;
+            display: none;            
+        }
+        .btn-left1 {
+            position: absolute;
+            top: 50%;
+            left: -80px;
+            display: none;
+        }
+        .btn-right1 {
+            position: absolute;
+            top: 50%;
+            right: -80px;
+            display: none;
+        }
+        .btn-left i, .btn-right i, .btn-left1 i, .btn-right1 i {
+            /* border: 1px solid red; */
+            text-align: center;
+            line-height: 50px;
+            font-size: 2rem;
+            color: rgb(0, 190, 164);
+            display: none;
+        }
+        .btn-left:hover, .btn-right:hover, .btn-left1:hover, .btn-right1:hover {
+            box-shadow: 0px 3px 5px #bbb; 
+            transform: translateY(-10px);
+            display: none;
+        }
+        .btn-left:hover i, .btn-right:hover i, .btn-left1:hover i, .btn-right1:hover i {
+            color: rgb(1, 138, 119);
+            display: none;
+        }
+        
+        .Week-Class-imgwrap {
+            width: 300px;
+            height: 320px;            
+            /* border: 1px solid blue; */
+
+            position: absolute;
+            left: 0;
+            /* top: 5px; */
+            
+            margin-left: 50%;
+            transform: translateX(-50%);
+        }
+       
+        ul.Week-Class-train {
+            width: 800%;
+            height: 100%;
+            transition: .5s;
+            /* pointer-events: none; */
+        }
+        
+        .Week-Class-train li {
+            padding: 0 10px;
+            /* pointer-events: none; */
+            /* opacity: .3; */
+        }
+        .Week-Class-train li + li {
+            opacity: .3;
+            /* 鄰近選擇器 */
+        }
+
+        .Week-Class-train img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+
+            /* border: 1px solid red; */
+            border-radius: 5px;
+            cursor: pointer;       
+        }        
+       
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin-top: 30px;
+            /* z-index: 3; */
+        }
+        .slider-dots li {
+            width: 6px;
+            height: 6px;
+            border-radius: 3px;
+            margin: 0 3px;
+            background-color: rgb(0, 190, 164);
+            /* border: 1px solid red; */
+            cursor: pointer;
+            transition: .3s;
+        }
+
+
+
+        /*-- -----4.下面是 精選好課程----- */        
+        .Good-classes {
+            margin-top: -20px;
+            padding-bottom: 50px;
+            /* border: 1px solid red; */
+        }
+        .GoodCard2, .GoodCard3 {
+            margin-top: 20px;
+        }
+
+        /* -----精選好課程 左右輪播箭頭 */        
+        .btn-left {
+            position: absolute;
+            top: 50%;
+            left: -60px;
+        }
+        .btn-right {
+            position: absolute;
+            top: 50%;
+            right: -60px;
+        }
+        
+        /* ---精選好課程 小卡----- */
+        .GoodClasses-card {
+            height: 450px;
+            border: 1px solid #ddd;
+            /* border: 1px solid blue; */
+            border-radius: 12px;
+
+            position: relative;
+        }
+        .GoodClasses-card a:hover {
+            text-decoration: none;
+        }
+        .GoodClass-card-imgwrap {
+            width: 100%;
+            height: 48%;
+            border-radius: 12px 12px 0 0;
+            /* border: 1px solid red; */
+            overflow: hidden;
+
+            position: relative;
+        }
+        .GoodClass-card-imgwrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: .5s;
+        }
+        .GoodClasses-card:hover img {
+            transform: scale(1.2);
+        }
+        .GoodClass-card-imgwrap .bookmarker {
+            position: absolute;
+            transition: .5s;
+        }
+        .GoodClasses-card:hover .bookmarker {
+            bottom: 10px;
+        }
+
+        .GoodClass-card-title {
+            padding: 20px;    
+            line-height: 1.5rem;
+            /* border: 1px solid red; */
+            color: rgba(0, 0, 0, 0.65);
+        }
+        .GoodClass-card-price {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: rgb(0, 190, 164);
+            /* border: 1px solid red; */
+            position: absolute;
+            right: 20px;
+            bottom: 120px;
+
+            width: calc(100% - 40px);
+            text-align: right;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .GoodClass-card-text {
+            display: flex;
+            justify-content: space-between;
+            margin: 40px 20px 0;
+
+            position: relative;
+        }
+        .GoodClass-card-sticker1 {
+            width: 72px;
+            height: 72px;
+            background: url(./imgs/classes/image12.png);
+            /* outline: 1px solid red; */
+        }
+        .GoodClass-card-sticker2 {
+            width: 72px;
+            height: 72px;
+            background: url(./imgs/classes/image12-1.png);
+            /* outline: 1px solid red; */
+
+            position: absolute;
+            opacity: 1;
+        }
+        /* .GoodClasses-card:hover .GoodClass-card-sticker1 {
+            opacity: 0;
+        }
+        .GoodClasses-card:hover .GoodClass-card-sticker2 {
+            opacity: 1;
+        } */
+
+        .GoodClass-card-intro {
+            width: 210px;
+            max-height: 60px;
+            /* outline: 1px solid blue; */
+            margin-left: 20px;
+            color: rgba(0, 0, 0, 0.65);
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 20px;
+
+            display: -webkit-box;
+            -webkit-line-clamp: 3; 
+            -webkit-box-orient: vertical;
+            overflow: hidden;            
+        }
+
+
+
+        /* -----5.下面是 Hahow 學生這麼說----- */
+        .StudentSay {
+            background: url(./imgs/image13.png);
+            padding-bottom: 50px;
+        }
+        .StudentCard2, .StudentCard3 {
+            margin-top: 20px;
+        }
+        .StudentSay-card {
+            background-color: #fff;
+            border-radius: 12px;
+            padding: 32px;
+            position: relative;
+            transition: .3s;
+        }
+        .StudentSay-card:hover {
+            transform: translateY(-10px);
+        }
+        .comma-left {
+            width: 26px;
+            /* border: 1px solid red; */
+            margin: 10px 0 16px;
+        }
+        .comma-right {
+            width: 26px;
+            /* border: 1px solid blue; */
+            margin: 30px 0 10px;
+            position: absolute;
+            right: 32px;
+        }
+        .StudentSay-feedback {
+            height: 310px;
+            font-size: 16px;
+            color: rgba(0, 0, 0, 0.65);
+            font-weight: 500;
+            line-height: 1.8rem;
+            /* border: 1px solid red; */
+            text-align: justify;
+        }
+
+        .student-head {
+            width: 45px;
+            height: 45px;
+            border: 2px solid #eee;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 10px;
+        }
+        .student-head img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .StudentSay-card a {
+            margin-right: 40px;
+            margin-top: 20px;
+        }
+        .student-name {
+            color: rgb(0, 190, 164);
+        }
+        .StudentSay-card a:hover {
+            text-decoration: none;
+        }
+        .StudentSay-card a:hover .student-head img {
+            opacity: .8;
+        }
+        .StudentSay-card a:hover .student-name {
+            opacity: .8;
+        }
+        .monster1 {
+            width: 88px;
+            position: absolute;
+            left: -16px;
+            bottom: -14px;
+        }
+        .monster2 {
+            width: 100px;
+            position: absolute;
+            right: 0;
+            top: -24px;
+        }
+        .monster3 {
+            width: 115px;
+            position: absolute;
+            left: -14px;
+            bottom: 0px;
+        }
+
+
+
+        /* -----6.下面是 本週熱門課程----- */
+        /* -----課程小卡的分類標題----- */
+        .Classes-title-left, .Classes-title-right {
+            width: 50%;
+            height: 90px;
+            /* border: 1px solid red; */
+
+            display: flex;
+            align-items: center;
+        } 
+        .Classes-title-left {
+            justify-content: flex-start;
+        }
+        .Classes-title-left img{
+            height: 48px;
+            width: auto;
+            display: none;
+        }
+        .Classes-title-left p {
+            font-size: 23px;
+            font-weight: 500;
+            line-height: 1em;
+            color: rgba(0, 0, 0, 0.65);
+            margin-left: 15px;
+            margin-top: 22px;
+        }
+
+        .Classes-title-right {
+            justify-content: flex-end;
+            padding-right: 12px;
+            padding-top: 5px;
+        }
+        .Classes-title-right a {
+            color: rgba(0, 0, 0, 0.65);
+            /* border: 1px solid green; */
+            /* font-size: 10px; */
+        }
+        .Classes-title-right svg {
+            fill: rgba(0, 0, 0, 0.65);
+            /* border: 1px solid blue; */
+            width: 16px;
+            height: 16px;            
+        }
+        .Classes-title-right a:hover {
+            color: rgba(0, 0, 0, 0.85);
+        }
+        .Classes-title-right a:hover svg {
+            fill: rgba(0, 0, 0, 0.85);;
+        }
+
+        /* -----課程小卡的部分----- */
+        .HotClasses {
+            position: relative;
+            border-bottom: 2px solid rgb(0, 190, 164);
+        }
+        .HotClasses-Orange {
+            border-bottom: 2px solid rgb(250, 139, 0);
+        }
+        
+        .Classes-imgwrap {
+            width: 110px;
+            height: 60px;
+
+            position: relative;
+        }
+        .Classes-banner {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .bookmarker {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+
+            position: absolute;
+            right: -240px;
+            bottom: -43px;
+        }
+        .bookmarker svg {
+            width: 75%;
+            height: 75%;
+            fill: rgb(250, 139, 0);
+            padding-left: 9px;
+            padding-top: 10px;
+        }
+
+        .bevel-notes {
+            width: 115px;
+            height: 26px;
+            background-color: rgb(0, 190, 164);
+            
+            transform: rotate(45deg);
+            position: absolute;
+            left: 165px;
+            z-index: 1;
+            display: none;
+        }
+        .bevel-notes-orange {
+            background-color: rgb(250, 139, 0);
+        }
+        .bevel-notes p {
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 26px;
+            color: #fff;
+            text-align: center;
+            padding-left: 25px;
+        }
+                
+        .author-head {
+            width: 50px;
+            height: 50px;
+            border: 2px solid #eee;
+            border-radius: 50%;
+            overflow: hidden;
+
+            position: absolute;
+            top: -25px;
+            left: 5px;
+            display: none;
+        }
+        .author-head img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* ---課程小卡 文字部分---- */        
+        .Classes-title {
+            width: 230px;
+            height: 60px;
+            /* border: 1px solid green; */
+            margin-left: 120px;
+            margin-top: -60px;
+
+            display: -webkit-box;
+            -webkit-line-clamp: 2; 
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        h4 {
+            font-size: 17px;            
+            line-height: 28px;
+        }
+        
+        .Classes-comment {
+            margin-top: 10px;
+            /* border: 1px solid purple; */
+            display: flex;
+            color: #999;
+        }        
+        .star svg {
+            width: 16px;
+            height: 16px;
+            fill: rgb(250, 139, 0);
+            /* flex-direction: row;  此為預設值*/
+            /* border: 1px solid green; */
+        }
+        .comment-unit {
+            /* border: 1px solid red; */
+            margin-left: 10px;
+            margin-top: 2px;
+        }
+        .comment-unit::after {
+            content: "則評論";
+            margin-left: 5px;
+        }
+
+        .Classes-time {
+            padding: 0 10px;
+            margin-top: -5px;
+            display: flex;
+            /* border: 1px solid yellowgreen; */
+            color: #999;
+            display: none;
+        }
+        .time-unit {
+            margin-top: -40px;
+            margin-left: 40px;
+            /* border: 1px solid red; */
+        }
+        .time-unit::after {
+            /* border: 1px solid blue; */
+            content: "分鐘";
+            margin-left: 5px;
+        }
+
+        .Classes-people {
+            padding: 0 10px;
+            margin-top: -5px;
+            display: flex;
+            /* border: 1px solid blue; */
+            color: #999;
+            display: none;
+        }
+        .people-unit {
+            margin-top: -40px;
+            margin-left: 40px;
+        }
+        .people-unit::after {
+            content: "人";
+            margin-left: 5px;
+        }
+        
+        .Classes-price {
+            font-size: 1.2rem;
+            color: rgb(0, 190, 164);
+            /* border: 1px solid red; */
+            position: absolute;
+            right: 35px;
+            bottom: 15px;
+        }
+
+       .Classes-purchase {
+            color: #999;
+            margin-top: 10px;
+       } 
+       .Classes-purchase span {
+            color: rgb(250, 139, 0);
+       }
+
+       .Classes-limittime {
+            color: #999;
+            display: none;
+       }
+       .Classes-fundrasing {
+            color: #999;
+            display: none;
+       }
+       .Classes-fundrasingBar {
+            display: none;
+       }
+
+       .moreClasses1 {
+           width: 60%;
+           margin: auto;
+           color: rgb(0, 190, 164);
+           border: 1px solid rgb(0, 190, 164);
+           text-align: center;
+           font-size: 18px;
+           padding: 8px 15px;
+           margin-top: 15px;
+           margin-bottom: 20px;
+       }
+       .moreClasses2 {
+            width: 60%;
+            margin: auto;
+            color: rgb(250, 139, 0);
+            border: 1px solid rgb(250, 139, 0);
+            text-align: center;
+            font-size: 18px;
+            padding: 8px 15px;
+            margin-top: 15px;
+            margin-bottom: 20px;
+       }
+
+        /* -----7.下面是 延伸閱讀----- */
+        .Futher-article {
+            width: 100%;
+            min-height: 700px;
+            background-color: rgb(245, 244, 244);
+            padding-bottom: 50px;
+        }
+        .Futher-article .first-maintitle {
+            font-size: 23px;
+            color: rgba(0, 0, 0, 0.65);
+            /* border: 1px solid red; */
+            margin-top: 50px;
+            margin-left: 12px;
+        }
+
+        .Articles {
+            min-height: 450px;
+            /* border: 1px solid blue; */
+        }
+        .Article-imgwrap {
+            width: 100%;
+            height: 40%;
+            /* border: 1px solid red; */
+            overflow: hidden;
+        }
+        .Article-imgwrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* object-position: center;  此為預設值 */
+            transition: .5s;
+        }
+        .Article-imgwrap img:hover {
+            transform: scale(1.2);
+        }
+
+        .Article-title h5 {
+            font-size: 23px;
+            line-height: 32px;
+            color: rgba(0, 0, 0, 0.65);
+            text-decoration: none;
+            padding: 10px 10px 0;
+            /* border: 1px solid red; */
+
+            display: -webkit-box;
+            -webkit-line-clamp: 2; 
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .Article-title h5:hover {
+            color: rgba(0, 0, 0, 0.85);
+        }
+        .Article-title a:hover {
+            text-decoration: none;
+        }
+
+        .Article-date {
+            padding: 0 10px 10px;
+            /* border: 1px solid green; */
+            font-size: 14px;
+            line-height: 1.75em;
+            color: rgba(0, 0, 0, 0.43)
+        }
+        .Article-intro {
+            height: 115px;
+            padding: 0 10px;
+            line-height: 1.75em;
+            color: rgba(0, 0, 0, 0.43);
+            /* border: 1px solid red; */
+            text-align: justify;
+            /* word-break: normal;  此為預設值 */
+
+            display: -webkit-box;
+            -webkit-line-clamp: 4; 
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .button-wrap {
+            width: 96px;
+            height: 30px;
+            background-color: #fff;
+            border: 1px solid #bbb;
+            /* border: 1px solid red; */
+            border-radius: 20px;
+            text-align: center;
+            line-height: 30px;
+            margin-top: 20px;
+            margin-left: 10px;
+        }
+        .button-style {            
+            color: rgba(0, 0, 0, 0.65);
+        }
+        .button-style:hover {
+            color: rgb(0, 190, 164);
+        }
+        a.button-style:hover {
+            text-decoration: none;
+        }
+
+
+
+        /* -----8.下面是 footer----- */
+        footer {
+            width: 100%;
+            min-height: 200px;
+            background-color: rgb(240, 238, 238);
+            padding-bottom: 80px;
+            /* border: 1px solid red; */
+            padding: 0 12px;
+        }
+
+        .about, .help, .follow {
+            /* border: 1px solid red; */
+            margin-top: 200px;
+        }
+
+        footer h6 {
+            font-size: 16px;
+            color: rgb(0, 190, 164);
+            font-weight: 400;
+            margin-top: 50px;
+        }
+        footer ul {
+            margin-top: 16px;
+        }
+        footer a {            
+            font-size: 12px;
+            cursor: pointer;
+            color: rgba(0, 0, 0, 0.65);
+            line-height: 30px;
+        }
+        footer a:hover {
+            text-decoration: none;
+            color: rgba(41, 41, 41, 0.65);
+        }
+
+        .footer-item {
+            margin-top: -500px;
+            line-height: 60px;
+            /* border: 1px solid red; */
+        }
+
+
+        .country-and-language button {
+            width: 250px;
+            height: 40px;
+            text-align: left;
+            background-color: #fff;
+            color: rgba(0, 0, 0, 0.65);
+            border: 1px solid #bbb;
+        }
+        .country-and-language button:hover {
+            color: rgb(250, 139, 0);
+            background-color: #fff;
+        }
+
+        .dropdown-menu, .dropdown-menu {
+            width: 250px;
+            height: 200px;
+            overflow: scroll;
+        }
+        .dropdown-header {
+            height: 30px;
+            line-height: 16px;
+            font-size: 12px;
+            color: rgba(0, 0, 0, 0.43);
+            background-color: rgba(0, 0, 0, 0.06);
+        }
+        .dropdown-item {
+            font-size: 16px;
+            color: rgba(0, 0, 0, 0.65);
+            border-bottom: 1px solid #ddd;
+        }
+        .dropdown-item:hover {
+            background-color: rgb(250, 139, 0);
+            color: #fff;
+        }        
+        .dropdown-item span.money {
+            /* border: 1px solid red; */
+            color: rgba(0, 0, 0, 0.43);
+        }
+        .dropdown-item:hover span.money {
+            color: #fff;
+        }
+        .menu2 {
+            height: 95px;
+        }
+
+        .country-and-language span {
+            font-size: 12px;
+            color: rgba(0, 0, 0, 0.65);
+            
+        }
+
+
+
+        /* -----RWD---------------------------------------- */
+
+        @media screen and (min-width: 768px) {
+            .container {
+                width: 750px;
+            }
+                        
+        }
+
+        /* @media screen and (min-width: 992px) {
+            .container {
+                width: 980px;
+            }            
+        } */
+
+        @media screen and (min-width: 1201px) {
+            .container {
+                width: 1200px;
+            }
+            /* -------header----------- */
+            .mobile-btn {
+                display: none;
+            }
+            .joinus {
+                display: block;
+            }
+            .navbar-row-left {
+                display: block;
+            }
+            .login {
+                display: block;
+            }
+            /* ------主畫面--------------- */
+            .bg-left, .bg-bottom {
+                display: block;
+            }
+            .bg-top {
+                width: 780px;
+                position: absolute;
+                top: 50px;
+                right: -130px;            
+            }
+            .decoration {
+                width: 500px;
+                position: absolute;
+                right: 75px;
+                top: 50px;
+            }
+            .TVchannel {
+                width: 233px;
+                position: absolute;
+                right: 326px;
+                top: 114px;
+            }
+            .monster-king {
+                width: 300px;
+                height: 300px;
+                position: absolute;
+                right: 120px;
+                top: 200px;
+            }
+            .playball {
+                width: 100px;
+                height: 100px;
+                position: absolute;
+                right: 3px;
+                top: 400px;
+                transition: .5s;
+            }
+
+            .slogan {
+                position: absolute;
+                left: 20px;
+                top: 135px;
+            }
+            .slogan h1 {
+                font-size: 32px;
+                line-height: 48px;
+                font-weight: 600;
+                color: rgba(0, 0, 0, 0.87);
+            }
+            .slogan span::before {
+                width: 190px;
+                height: 15px;
+                background-color: rgb(255, 238, 88);
+                content: "";
+                position: absolute;
+                left: 145px;
+                top: 27px;
+                z-index: -1;
+            }
+
+            .learn-search {
+                width: 450px;
+                position: absolute;
+                left: 20px;
+                top: 265px;
+            }
+            .learn-search form {
+                height: 64px;
+            }
+            .learn-search form i {
+                padding: 25px 15px 0;
+            }
+            .learn-search form input {
+                height: 60px;
+            }
+
+            /* -----學習指標----- */
+            .learn-goal-card {
+                width: 320px;
+                margin-top: 100px;
+                margin-left: 30px;
+            }
+            .learn-goal-card h2 {
+                font-size: 16px;
+                font-weight: 500;
+                transition: .3s;
+            }
+            .learn-goal-card:hover h2 {
+                font-size: 18px;
+                color: rgb(250, 139, 0);
+                transform: translateY(-20px);
+            }
+            .learn-goal-imgwrap {
+                width: 315px;
+                margin: auto;
+                position: relative;
+                padding-top: 20px;
+                padding-bottom: 10px;
+            }
+            .learn-goal-imgwrap .picture {
+                width: 100%;
+                transition: .3s;
+            }
+            .learn-goal-card:hover .picture {
+                transform: translateY(-20px);
+            }
+
+            .learn-goal-imgwrap .monster {
+                width: 120px;
+                height: 75px;
+                position: absolute;
+                right: 0;
+                bottom: -10px;
+
+                opacity: 0;
+                transition: .3s;
+            }
+            .learn-goal-card:hover .monster {
+                opacity: 1;
+            }
+
+            .learn-goal-imgwrap .monster2 {
+                width: 110px;
+                height: 128px;
+                position: absolute;
+                right: -35px;
+                top: 105px;
+
+                opacity: 0;
+                transition: .3s;
+            }
+            .learn-goal-card:hover .monster2 {
+                opacity: 1;
+            }
+            
+            .learn-goal-card h3 {
+                width: 100%;
+                font-size: 14px;
+                font-weight: 400;
+                color: rgba(0, 0, 0, 0.45);
+                line-height: 28px;
+                text-align: center;
+
+                opacity: 0;
+                transition: .3s;
+            }
+            .learn-goal-card:hover h3 {
+                opacity: 1;
+            }
+
+            .learn-goal-imgwrap .monster3 {
+                width: 150px;
+                height: 110px;
+                position: absolute;
+                top: 130px;
+
+
+                opacity: 0;
+                transition: .3s;
+            }
+            .learn-goal-card:hover .monster3 {
+                opacity: 1;
+            }
+            /* -------2.每週嚴選推薦---------------------------- */
+            .Week-classes {
+                padding-bottom: 100px;
+                /* border: 1px solid red; */
+                overflow: hidden;
+            }
+            .Good-classes h4, .Week-classes h4, .StudentSay h4 {
+                width: 100%;
+                font-size: 23px;
+                font-weight: 600;
+                color: rgba(0, 0, 0, 0.65);
+                margin-top: 60px;
+                text-align: center;
+            }
+            .Good-classes p, .Week-classes p, .StudentSay p {
+                color: rgba(0, 0, 0, 0.65);
+                width: 100%;
+                text-align: center;
+                padding-bottom: 30px;
+            }
+            .Good-classes span, .Week-classes span, .StudentSay span {
+                font-size: 20px;
+                color: rgb(0, 190, 164);
+                font-weight: 600;
+                margin: 0px 4px;
+            }
+
+            .Week-class-banner {
+                width: 900px;
+                height: 440px;
+                position: relative;
+            }
+
+            .btn-left, .btn-right, .btn-left1, .btn-right1 {
+                display: block;
+                            
+            }
+            .btn-left1 {
+                display: block;
+            }
+            .btn-right1 {
+                display: block;
+            }
+            .btn-left i, .btn-right i, .btn-left1 i, .btn-right1 i {
+                display: block;
+            }
+            .btn-left:hover, .btn-right:hover, .btn-left1:hover, .btn-right1:hover {
+                display: block;
+            }
+            .btn-left:hover i, .btn-right:hover i, .btn-left1:hover i, .btn-right1:hover i {
+                display: block;
+            }
+
+            .Week-Class-imgwrap {
+                width: 900px;
+                height: 440px;            
+                /* border: 1px solid blue; */
+
+                position: absolute;
+                left: 0;
+                top: 5px;
+                
+                margin-left: 50%;
+                transform: translateX(-50%);
+            }
+
+            ul.Week-Class-train {
+                width: 800%;
+                transition: .5s;
+            }
+
+            .slider-dots {
+                display: flex;
+                justify-content: center;
+                width: 100%;
+                margin-top: 40px;
+            }
+
+            /* -----3. 精選好課程--------------------- */
+            .Good-classes {
+                padding-bottom: 100px;
+                /* border: 1px solid red; */
+            }
+            .GoodCard2, .GoodCard3 {
+                margin-top: 0;
+            }
+
+            .GoodClass-card-sticker2 {
+                opacity: 0;
+            }
+            .GoodClasses-card:hover .GoodClass-card-sticker1 {
+                opacity: 0;
+            }
+            .GoodClasses-card:hover .GoodClass-card-sticker2 {
+                opacity: 1;
+            }
+
+
+            /* -----4. 學生這麼說--------------------- */
+            .StudentCard2, .StudentCard3 {
+                margin-top: 0;
+            }
+
+            /* -----6. 本週熱門課程-------------------- */
+            /* -----課程小卡的分類標題----- */
+            .Classes-title-left, .Classes-title-right {
+                margin-top: 50px;
+                /* border: 1px solid red; */
+            }            
+            .Classes-title-left img {
+                display: block;
+            }
+
+            /* -----課程小卡的部分----- */ 
+            .HotClasses {
+                height: 380px;
+                border: 1px solid #ddd;
+                /* outline: 1px solid red; */
+
+                position: relative;
+
+                border-bottom: 5px solid rgb(0, 190, 164);
+                box-shadow: 0px 3px 3px #ccc;
+            }
+            .HotClasses-Orange {
+                border-bottom: 5px solid rgb(250, 139, 0);
+            }
+            .Classes-imgwrap {
+                width: 100%;
+                height: 45%;
+                overflow: hidden;
+
+                position: relative;
+            }
+            .Classes-banner {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: 0 0;
+                transition: .5s;
+            }
+            .HotClasses:hover .Classes-banner {
+                transform: scale(1.2);
+            }
+
+            .bookmarker {
+                background-color: #fff; 
+                border-radius: 50%;
+                overflow: hidden;
+
+                position: absolute;
+                left: 10px;
+                bottom: -40px;
+                right: 0;
+
+                transition: .5s;
+            }        
+            .HotClasses:hover .bookmarker {
+                bottom: 10px;
+            }
+
+            .bevel-notes, .author-head {
+                display: block;
+            }            
+            /* ---課程小卡 文字部分---- */   
+            .Classes-title {
+                width: 100%;
+                height: auto;
+                /* border: 1px solid red; */
+                padding: 10px;
+                max-height: 80px;
+                margin-left: 0px;
+                margin-top: 0px;
+
+                display: -webkit-box;
+                -webkit-line-clamp: 2; 
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+            h4 {
+                font-size: 23px;
+                line-height: 2.1rem;
+            }
+
+            .Classes-comment {
+                padding: 0 10px;
+                margin-top: 5px;
+                display: flex;
+            }
+
+            .Classes-time, .Classes-people {
+                display: block;
+            }
+
+            .Classes-price {
+                font-size: 1.5rem;
+                position: absolute;
+                right: 10px;
+                bottom: 20px;
+            }
+
+            .Classes-purchase {
+                /* border: 1px solid red; */
+                padding-left: 10px;
+                margin-top: 30px;
+            }
+            .Classes-limittime {
+                display: block;
+                /* border: 1px solid red; */
+                margin-top: -42px;
+                padding-left: 180px;
+
+            }
+            .Classes-fundrasingBar {                
+                display: block;
+                width: 100%;
+                height: 10px;
+            }
+            .Classes-bar1, .Classes-bar2 {
+                width: 90%;
+                height: 100%;
+                margin: auto;
+                border-radius: 10px;
+            }
+            .Classes-bar1 {
+                margin-top: -5px;
+                background-color: rgb(204, 204, 204);
+            }
+            .Classes-bar2 {
+                margin-top: -10px;
+                background: linear-gradient(90deg, rgb(255, 177, 21), rgb(250, 139, 0) 50%, rgb(240, 108, 0));
+            }
+            .Classes-fundrasing {
+                display: block;
+                text-align: center;
+                margin-top: 5px;
+            }
+            
+            .moreClasses1, .moreClasses2 {
+                display: none;
+            }
+
+
+            /* -----7.下面是 延伸閱讀--------------------- */
+            .Futher-article {
+                padding-bottom: 100px;
+            }
+            .Futher-article .first-maintitle {                
+                margin-top: 100px;
+                margin-bottom: 20px;
+            }
+
+            /* -----8.下面是 footer----------------------- */
+            footer {
+                padding-left: 0;
+                padding-right: 0;
+                padding-bottom: 80px;
+            }
+
+            .about, .help, .follow {
+                margin-top: 0;
+            }
+            .footer-item {
+                margin-top: 35px;
+            }
+
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- 0.下面是 header -->
+    <header>
+        <div class="container">
+            <div class="row align-items-center">
+                <nav class="navbar d-flex align-items-center">
+                    <!-- Logo -->
+                    <div class="header-top">
+                        <a class="d-flex align-items-center" href="#">
+                            <div class="logo">
+                                <img src="./imgs/header/logo-black-59fdbe302d195a3dc848e4f805f681b3-svg.svg" alt="">
+                            </div>
+                            <div class="joinus">
+                                <img src="./imgs/header/2018hiring-svg.svg" alt="">
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <!-- 漢堡夾 -->
+                    <a class="mobile-btn" href="#">                        
+                        <i class="fa-solid fa-align-left"></i>
+                    </a>
+
+                    <!-- 下面是 navbar選單 -->
+                    <div class="navbar-row-left mr-auto ml-3">
+                        <ul class="navbar-left list-unstyled d-flex align-items-center">
+                            <li class="explore-courses">
+                                <a href="#">
+                                    <i class="fa fa-th-large fa-fw"></i>
+                                    探索課程
+                                </a>
+                            </li>
+                            <li class="presentaition ml-4">
+                                <a href="#">
+                                    <i class="fa fa-pencil fa-fw"></i>
+                                    我要開課
+                                </a>
+                            </li>
+                            <li class="presentaition ml-4">
+                                <a href="#">
+                                    <svg width="10" height="17" viewBox="0 0 10 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="sc-m2s929-2 ksaMEH"><path d="M8.22583 2.81759C8.87129 2.78897 9.38639 2.32792 9.38639 1.76195C9.38639 1.1769 8.8395 0.699951 8.16223 0.699951H2.03827C1.361 0.699951 0.814108 1.17372 0.814108 1.76195C0.814108 2.3311 1.32921 2.78897 1.97467 2.81759C1.59312 5.81598 0.200439 6.01311 0.200439 9.0274V15.3867C0.200439 16.2642 1.02396 16.9797 2.03827 16.9797H8.16223C9.17654 16.9797 10.0001 16.2642 10.0001 15.3867V9.0274C10.0001 6.00675 8.60738 5.82234 8.22583 2.81759ZM4.69962 7.26271C3.85066 6.77305 2.84589 6.58863 1.88882 6.69038C2.00011 6.41693 2.1273 6.14984 2.27674 5.89229C2.77594 5.02743 3.08436 3.85097 3.20519 2.82394H6.99213C7.10978 3.85097 7.42138 5.02743 7.92058 5.89229C8.12726 6.25159 8.29896 6.62678 8.4325 7.0147C7.98418 7.20548 6.50883 8.30881 4.69962 7.26271Z" fill="#595959"></path></svg>
+                                    哈好福利社
+                                </a>
+                            </li>
+                            <li class="search ml-4">
+                                <a href="#">
+                                    <i class="fa fa-search"></i>
+                                    搜尋
+                                </a>
+                            </li>
+                        </ul>                        
+                    </div>
+
+                    <div class="navbar-row-right">
+                        <ul class="navbar-right list-unstyled d-flex align-items-center">
+                            <li class="chart">
+                                <a href="#">
+                                    <img src="./imgs/header/mini-cart-0dba845875d5be0c952b71edaac804ba-svg.svg" alt="">
+                                </a>
+                            </li>                            
+                            <li class="login ml-3">
+                                <a href="#">登入</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>        
+    </header>
+
+
+    <!-- -----1.下面是 主畫面----- -->
+    <main class="BigBanner">
+        <div class="bg-left">
+            <img src="./imgs/banner/image00.png" alt="">
+        </div>
+        <div class="bg-top">
+            <img class="yellow-planet" src="./imgs/banner/topBackground-003d2ed18bc3c66c889b-png.png" alt="">
+        </div>        
+        
+        <div class="container">
+            <div class="row">
+                <!-- -----下面是 右邊會動的怪物王----- -->
+                <div class="BigBanner-screen">
+                    <div class="decoration">
+                        <img src="./imgs/banner/deco-1ac3f3e1914aedba92bc-png.png" alt="">
+                    </div>
+                    <div class="TVchannel">
+                        <a href="#">
+                            <img src="./imgs/banner/computer-539d1fe220fd04fb962f-png.png" alt="">
+                        </a>                        
+                    </div>
+                    <div class="monster-king">
+                        <img src="./imgs/banner/wa-f2292bc0eb326126795f-png.png" alt="">
+                    </div>
+                    <div class="playball">
+                        <img src="./imgs/banner/playBall-6e9c6aacb7ba7982f41707fa3bac569c-svg.svg" alt="">
+                    </div>
+                </div>
+                <!-- -----下面是 左邊sloga+搜尋----- -->
+                <div class="slogan">
+                    <h1>
+                        最有趣的 <span>線上課程平台</span> <br>
+                        學那些學校不會教的事
+                    </h1>
+                </div>
+
+                <div class="learn-search">
+                    <form>
+                        <i class="fa fa-search"></i>
+                        <input placeholder="今天想學習什麼？">
+                    </form>
+                    <div class="hashtag-keyword">
+                        <a href="#">Python / C 語言</a>
+                        <a href="#">社群行銷懶人包</a>
+                        <a href="#">出國留學全攻略</a>
+                        <a href="#">illustrator 優惠倒數</a>
+                        <a href="#">英文 / 日文</a>
+                    </div>
+                </div>
+            </div>            
+        </div>
+
+        <!-- -----下面是 學習指標----- -->
+        <div class="container">
+            <div class="row mt-5">
+                <!-- NO1. 指標一 -->
+                <div class="ol-lg-4 mt-1">
+                    <div class="learn-goal-card">
+                        <h2>學無止境與你一起</h2>
+                        <div class="learn-goal-imgwrap">
+                            <img class="picture" src="./imgs/banner/intro-learning-099e94a15ed20bac0ba0-png.png" alt="">
+                            <img class="monster" src="./imgs/banner/image02.png" alt="">
+                        </div>
+                        <h3>從程式設計到咖啡烘培，輕易找到你的適才適性，發現你的熱情所在！</h3>
+                    </div>
+                </div>
+
+                <!-- NO2. 指標二 -->
+                <div class="ol-lg-4 mt-1">
+                    <div class="learn-goal-card">
+                        <h2>在 Hahow 線上學習</h2>
+                        <div class="learn-goal-imgwrap">
+                            <img class="picture" src="./imgs/banner/image11.png" alt="">
+                            <img class="monster2" src="./imgs/banner/image03.png" alt="">
+                        </div>
+                        <h3>不受時間地點限制、可重複觀看影片，讓你輕鬆快樂地累積知識技能！</h3>
+                    </div>
+                </div>
+
+                <!-- NOˇ. 指標三 -->
+                <div class="ol-lg-4 mt-1">
+                    <div class="learn-goal-card">
+                        <h2>內容多元精彩又有趣</h2>
+                        <div class="learn-goal-imgwrap">
+                            <img class="picture" src="./imgs/banner/intro-content-604c16288d97ff8c6dfe-png.png" alt="">
+                            <img class="monster3" src="./imgs/banner/image04.png" alt="">
+                        </div>
+                        <h3>線上互動機制，創造知識技能與觀點的有效流動，完課還可領完課證明！</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="bg-bottom">
+            <img src="./imgs/banner/bottomBackground-55c18d07d3ee0abab3db-png.png" alt="">
+        </div>
+    </main>
+
+
+    <!-- -----2.下面是 每週嚴選推薦---- -->
+    <section class="Week-classes">
+        <div class="container">
+            <div class="row">
+                <h4>每週嚴選推薦</h4>
+                <p>一些很棒的 <span>活動消息</span> ，走過路過別錯過</p>
+            </div>
+        </div>
+        <!-- 下面是 輪播牆 -->
+        <div class="cnotainer">
+            <div class="row justify-content-center">
+                <!-- 下面是 牆面 -->
+                <div class="Week-Class-imgwrap">
+                    <ul class="Week-Class-train d-flex list-unstyled">
+                        <li>
+                            <img src="./imgs/WeekClasses/cm_art_l.png" alt="">
+                        </li>
+                        <li>
+                            <img src="./imgs/WeekClasses/designnotdeep_l.png" alt="">
+                        </li>
+                        <li>
+                            <img src="./imgs/WeekClasses/empire_2022_l.png" alt="">
+                        </li>
+                        <li>
+                            <img src="./imgs/WeekClasses/linefriends_l.png" alt="">
+                        </li>
+                        <li>
+                            <img src="./imgs/WeekClasses/nancy_notes_l.png" alt="">
+                        </li>
+                        <li>
+                            <img src="./imgs/WeekClasses/onlytalk_l.png" alt="">
+                        </li>
+                        <li>
+                            <img src="./imgs/WeekClasses/sonny_fly_l.png" alt="">
+                        </li>
+                        <li>
+                            <img src="./imgs/WeekClasses/timmo_photoshop_font_l.png" alt="">
+                        </li>
+                    </ul>
+
+                    <ul class="slider-dots list-unstyled">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+
+                <div class="Week-class-banner">
+                    <!-- 下面是 左右輪播箭頭 -->
+                    <div class="btn-left1">
+                        <i class="fa-solid fa-angle-left"></i>
+                    </div>
+                    <div class="btn-right1">
+                        <i class="fa-solid fa-angle-right"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+    <!-- -----4.下面是 精選好課程----- -->     
+    <section class="Good-classes">
+        <div class="container">
+            <div class="row">
+                <h4>Hahow 精選好課程</h4>
+                <p>精挑細選了一些很棒的課程 <span>推薦給你</span> </p>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="row">
+                <!-- 下面是 左右輪播箭頭 -->
+                <div class="btn-left">
+                    <i class="fa-solid fa-angle-left"></i>
+                </div>
+                <div class="btn-right">
+                    <i class="fa-solid fa-angle-right"></i>
+                </div>
+                <!-- 下面是 單位的課程小卡N0.1 -->
+                <div class="col-lg-4">
+                    <div class="GoodClasses-card">
+                        <a href="#">                            
+                            <div class="GoodClass-card-imgwrap">
+                                <!-- <div class="bevel-notes">
+                                    <p>募資成功</p>
+                                </div> -->
+                                <img src="./imgs/GoodClasses/5fce20a7928c096221719dc5.png" alt="">
+                                <div class="bookmarker">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M384 48V512l-192-112L0 512V48C0 21.5 21.5 0 48 0h288C362.5 0 384 21.5 384 48z"/></svg>
+                                </div>  
+                            </div>
+    
+                            <div class="GoodClass-card-title">
+                                <h5>Photoshop 合成必修 - 電影光影場景合成</h5>
+                            </div>
+
+                            <div class="GoodClass-card-price">NT$2,400</div>
+
+                            <div class="GoodClass-card-text">
+                                <div class="GoodClass-card-sticker1"></div>
+                                <div class="GoodClass-card-sticker2"></div>
+                                <div class="GoodClass-card-intro">
+                                    好評大推「結合概念與實作，細節超級詳細！」，光影技巧學好學滿，合成再也不假假。
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 下面是 單位的課程小卡N0.2 -->
+                <div class="col-lg-4 GoodCard2">
+                    <div class="GoodClasses-card">
+                        <a href="">                            
+                            <div class="GoodClass-card-imgwrap">
+                                <!-- <div class="bevel-notes">
+                                    <p>募資成功</p>
+                                </div> -->
+                                <img src="./imgs/GoodClasses/62020f17ff7b080006ce269f.png" alt="">
+                                <div class="bookmarker">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M384 48V512l-192-112L0 512V48C0 21.5 21.5 0 48 0h288C362.5 0 384 21.5 384 48z"/></svg>
+                                </div>  
+                            </div>
+    
+                            <div class="GoodClass-card-title">
+                                <h5>【講座】暢銷線上課程的煉成心法｜OnlyTalk</h5>
+                            </div>
+
+                            <div class="GoodClass-card-price">NT$499</div>
+
+                            <div class="GoodClass-card-text">
+                                <div class="GoodClass-card-sticker1"></div>
+                                <div class="GoodClass-card-sticker2"></div>
+                                <div class="GoodClass-card-intro">
+                                    【單堂只要 $424 起】圖文不符張志祺將分享製課經驗和開發心法，為每位想投入線上課程的學員，帶來最完整的建議與洞察！
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 下面是 單位的課程小卡N0.3 -->
+                <div class="col-lg-4 GoodCard3">
+                    <div class="GoodClasses-card">
+                        <a href="">                            
+                            <div class="GoodClass-card-imgwrap">
+                                <!-- <div class="bevel-notes">
+                                    <p>募資成功</p>
+                                </div> -->
+                                <img src="./imgs/GoodClasses/6203a78a1c2cd10007d5fdfd.png" alt="">
+                                <div class="bookmarker">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M384 48V512l-192-112L0 512V48C0 21.5 21.5 0 48 0h288C362.5 0 384 21.5 384 48z"/></svg>
+                                </div>  
+                            </div>
+    
+                            <div class="GoodClass-card-title">
+                                <h5>出國留學全攻略：Sonny&翊婷帶你一圓留學夢</h5>
+                            </div>
+
+                            <div class="GoodClass-card-price">NT$1,800</div>
+
+                            <div class="GoodClass-card-text">
+                                <div class="GoodClass-card-sticker1"></div>
+                                <div class="GoodClass-card-sticker2"></div>
+                                <div class="GoodClass-card-intro">
+                                    【 68 折現省 $850 元 】從自我檢測、校系選擇、文件撰寫與繳交、到出國前的準備，帶你走每一道程序，幫你順利錄取，一圓出國留學夢！
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- -----5.下面是 Hahow學生這麼說----- --> 
+    <section class="StudentSay">
+        <div class="container">
+            <div class="row">
+                <h4>Hahow 學生這麼說</h4>
+                <p>超過 <span>5000+</span> 則真實評價</p>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <!-- NO1. 學生回饋 -->
+                <div class="col-lg-4" >
+                    <div class="StudentSay-card">
+                        <div class="comma-left">
+                            <img src="./imgs/image7.png" alt="">
+                        </div>
+                        <div class="StudentSay-feedback">
+                            自從認識 Hahow，才發現這世界還有這麼多有趣的事可以透過線上課程自學，像是腹語、折氣球、聲音表達，而在專業技能的增進對我幫助也非常大，例如標準字設計、製作網站 UI 等。後來認真研讀了好老師手冊，才知道 Hahow 對於課程製作的嚴謹和品質要求很高，讓我確信只要是 Hahow 出品的線上課程，都有品質保證，因此在線上課程中，我會優先選擇 Hahow。
+                        </div>
+                        <div class="comma-right">
+                            <img src="./imgs/image8.png" alt="">
+                        </div>
+
+                        <a class="d-flex justify-content-end align-items-center" href="#">
+                            <div class="student-head">
+                                <img src="./imgs/student/image-student1.png" alt="">
+                            </div>
+                            <div class="student-name">Chi</div>
+                        </a>
+
+                        <div class="monster1">
+                            <img src="./imgs/student/image-monster1.png" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NO2. 學生回饋 -->
+                <div class="col-lg-4 StudentCard3" >
+                    <div class="StudentSay-card">
+                        <div class="comma-left">
+                            <img src="./imgs/image7.png" alt="">
+                        </div>
+                        <div class="StudentSay-feedback">
+                            之前不曾體驗過線上課程，以往求學過程中，下課後都是往補習班跑；然而離開校園後，就不再像以前那樣可以在下課後充實自我了。步入職場後，新人總是滿懷技能，才發現職場時刻猶如戰場，想要不被淘汰，就必須能與時俱進多學新技術，因此開始嘗試線上課程，在下班後行有餘力可以一點一滴的累積。現在我努力學習新知、認識更多職場技能，非常感謝 Hahow，可以讓我持續學習與成長！
+                        </div>
+                        <div class="comma-right">
+                            <img src="./imgs/image8.png" alt="">
+                        </div>
+
+                        <a class="d-flex justify-content-end align-items-center" href="#">
+                            <div class="student-head">
+                                <img src="./imgs/student/image-student2.jpeg" alt="">
+                            </div>
+                            <div class="student-name">TIAN-HONG</div>
+                        </a>
+
+                        <div class="monster2">
+                            <img src="./imgs/student/image-monster2.png" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NO3. 學生回饋 -->
+                <div class="col-lg-4 StudentCard3" >
+                    <div class="StudentSay-card">
+                        <div class="comma-left">
+                            <img src="./imgs/image7.png" alt="">
+                        </div>
+                        <div class="StudentSay-feedback">
+                            謝謝可愛的 Hahow 吉祥物蛙蛙，在我大學生活感到迷茫的時候，向著我伸出了帶有希望曙光的援手，在這裡我重新拾起對學習的熱情，而獲得知識的範圍也不再僅限於單一領域，是真正地、發自內心地去學習自己熱愛的一切事物。因此我推薦各位朋友，如果你有什麼想學卻還沒開始的事情的話，試著在 Hahow 挖寶看看吧！
+                        </div>
+                        <div class="comma-right">
+                            <img src="./imgs/image8.png" alt="">
+                        </div>
+
+                        <a class="d-flex justify-content-end align-items-center" href="#">
+                            <div class="student-head">
+                                <img src="./imgs/student/image-student3.png" alt="">
+                            </div>
+                            <div class="student-name">玉米</div>
+                        </a>
+
+                        <div class="monster3">
+                            <img src="./imgs/student/image-monster3.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ------6-1.課程小卡 第1行：本週熱門課程 -->
+    <!-- 6-1.下面是 課程小卡的分類標題 -->
+    <main class="container">
+        <div class="row">
+            <div class="Classes-title-left">
+                <img src="./imgs/classes/popular-png.png" alt="">
+                <p>本週熱門課程</p>
+            </div>
+            <div class="Classes-title-right">
+                <a href="">更多熱門課程
+                    <!-- <i class="fas fa-arrow-right"></i> -->
+                    <!-- 上面是直接貼Fontawesome的html -->
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M438.6 278.6l-160 160C272.4 444.9 264.2 448 256 448s-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L338.8 288H32C14.33 288 .0016 273.7 .0016 256S14.33 224 32 224h306.8l-105.4-105.4c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160C451.1 245.9 451.1 266.1 438.6 278.6z"/></svg>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- 6-1.下面是 課程小卡的部分 -->
+    <main class="container">
+        <div class="row justify-content-between">
+            <!-- 下面是 單位的課程小卡N0.1-->
+            <div class="col-12 col-sm-6 col-mg-4 col-lg-3 mb-3 mt-4">
+                <div class="HotClasses">
+                    <div class="Classes-imgwrap">
+                        <!-- 下面是 要做斜角緞帶 -->
+                        <div class="bevel-notes">
+                            <p>上課囉</p>
+                        </div>
+                        <img class="Classes-banner" src="./imgs/classes/6049a2f4d44219d9cfbbd1b5.png" alt="">
+                        <div class="bookmarker">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M384 48V512l-192-112L0 512V48C0 21.5 21.5 0 48 0h288C362.5 0 384 21.5 384 48z"/></svg>
+                        </div>                        
+                    </div>
+                    <div class="author-head">
+                        <img src="./imgs/classes/5d7e4b8645639e00212d0196.png" alt="">
+                    </div>
+                    
+
+                    <div class="Classes-title">
+                        <h4>職場考場都必用！全方位的情境寫作術！</h4>                   
+                    </div>
+                    
+                    <div class="Classes-comment">
+                        <div class="star nb1">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                                <title>star-full</title>
+                                <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z"></path>
+                            </svg>                            
+                        </div>
+                        <div class="star nb2">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                                <title>star-full</title>
+                                <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z"></path>
+                            </svg>                            
+                        </div>
+                        <div class="star nb3">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                                <title>star-full</title>
+                                <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z"></path>
+                            </svg>                            
+                        </div>
+                        <div class="star nb4">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                                <title>star-full</title>
+                                <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z"></path>
+                            </svg>                            
+                        </div>
+                        <div class="star nb5">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                                <title>star-full</title>
+                                <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z"></path>
+                            </svg>                            
+                        </div>
+                        <p class="comment-unit" >24</p>
+                    </div>
+
+                    <div class="Classes-time">
+                        <p class="time-name">課時</p>
+                        <p class="time-unit">221</p>
+                    </div>
+
+                    <div class="Classes-people">
+                        <p class="people-name">同學</p>
+                        <p class="people-unit">797</p>
+                    </div>
+
+                    <div class="Classes-price">NT$2,650</div>
+                </div>
+            </div>
+
+            <!-- 下面是 複製貼上另外橫排的3個課程小卡 -->
+            <!-- No.2 -->
+            <div class="col-12 col-sm-6 col-mg-4 col-lg-3 mb-3 mt-4">
+                <div class="HotClasses">
+                    <div class="Classes-imgwrap">
+                        <!-- 下面是 要做斜角緞帶 -->
+                        <div class="bevel-notes">
+                            <p>上課囉</p>
+                        </div>
+                        <img class="Classes-banner" src="./imgs/classes/6164e95aaa24450007a88091.png" alt="">
+                        <div class="bookmarker">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M384 48V512l-192-112L0 512V48C0 21.5 21.5 0 48 0h288C362.5 0 384 21.5 384 48z"/></svg>
+                        </div>
+                    </div>
+                    <div class="author-head">
+                        <img src="./imgs/classes/5f9a9a0088865af2b343e999.png" alt="">
+                    </div>
+                    
+
+                    <div class="Classes-title">
+                        <h4>建立個人品牌視覺：諾米帶你上手風格再造</h4>                   
+                    </div>
+                    
+                    <div class="Classes-comment">
+                        <div class="star nb1">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                                <title>star-full</title>
+                                <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z"></path>
+                            </svg>                            
+                        </div>
+                        <div class="star nb2">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                                <title>star-full</title>
+                                <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z"></path>
+                            </svg>                            
+                        </div>
+                        <div class="star nb3">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                                <title>star-full</title>
+                                <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z"></path>
+                            </svg>                            
+                        </div>
+                        <div class="star nb4">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                                <title>star-full</title>
+                                <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z"></path>
+                            </svg>                            
+                        </div>
+                        <div class="star nb5">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                                <title>star-full</title>
+                                <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z"></path>
+                            </svg>                            
+                        </div>
+                        <p class="comment-unit" >312</p>
+                    </div>
+
+                    <div class="Classes-time">
+                        <p class="time-name">課時</p>
+                        <p class="time-unit">19</p>
+                    </div>
+
+                    <div class="Classes-people">
+                        <p class="people-name">同學</p>
+                        <p class="people-unit">6852</p>
+                    </div>
+
+                    <div class="Classes-price">NT$0</div>
+                </div>
+            </div>
+
+            <!-- No.3 -->
+            <div class="col-12 col-sm-6 col-mg-4 col-lg-3 mb-3 mt-4">
+                <div class="HotClasses">
+                    <div class="Classes-imgwrap">
+                        <!-- 下面是 要做斜角緞帶 -->
+                        <div class="bevel-notes">
+                            <p>上課囉</p>
+                        </div>
+                        <img class="Classes-banner" src="./imgs/classes/618de3382ff6b700068c5762.png" alt="">
+                        <div class="bookmarker">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M384 48V512l-192-112L0 512V48C0 21.5 21.5 0 48 0h288C362.5 0 384 21.5 384 48z"/></svg>
+                        </div>
+                    </div>
+                    <div class="author-head">
+                        <img src="./imgs/classes/5f9a9a0088865af2b343e999.png" alt="">
+                    </div>
+                    
+
+                    <div class="Classes-title">
+                        <h4>創作坊精華：入手專家心法，讓品牌創意變身</h4>                   
+                    </div>
+                    
+                    <div class="Classes-comment">
+                        <div class="star nb1">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                                <title>star-full</title>
+                                <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z"></path>
+                            </svg>                            
+                        </div>
+                        <div class="star nb2">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                                <title>star-full</title>
+                                <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z"></path>
+                            </svg>                            
+                        </div>
+                        <div class="star nb3">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                                <title>star-full</title>
+                                <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z"></path>
+                            </svg>                            
+                        </div>
+                        <div class="star nb4">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                                <title>star-full</title>
+                                <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z"></path>
+                            </svg>                            
+                        </div>
+                        <div class="star nb5">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                                <title>star-full</title>
+                                <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z"></path>
+                            </svg>                            
+                        </div>
+                        <p class="comment-unit" >73</p>
+                    </div>
+
+                    <div class="Classes-time">
+                        <p class="time-name">課時</p>
+                        <p class="time-unit">105</p>
+                    </div>
+
+                    <div class="Classes-people">
+                        <p class="people-name">同學</p>
+                        <p class="people-unit">3178</p>
+                    </div>
+
+                    <div class="Classes-price">NT$0</div>
+                </div>
+            </div>
+
+            <!-- No.4 -->
+            <div class="col-12 col-sm-6 col-mg-4 col-lg-3 mb-3 mt-4">
+                <div class="HotClasses">
+                    <div class="Classes-imgwrap">
+                        <!-- 下面是 要做斜角緞帶 -->
+                        <div class="bevel-notes">
+                            <p>上課囉</p>
+                        </div>
+                        <img class="Classes-banner" src="./imgs/classes/5f9c06f988865a3dd24603af.png" alt="">
+                        <div class="bookmarker">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M384 48V512l-192-112L0 512V48C0 21.5 21.5 0 48 0h288C362.5 0 384 21.5 384 48z"/></svg>
+                        </div>
+                    </div>
+                    <div class="author-head">
+                        <img src="./imgs/classes/5f9a9a0088865af2b343e999.png" alt="">
+                    </div>
+                    
+
+                    <div class="Classes-title">
+                        <h4>Today at Apple:和攝影師 Ada Lin 用 iPhone 學習專業商品攝影</h4>                   
+                    </div>
+                    
+                    <div class="Classes-comment">
+                        <div class="star nb1">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                                <title>star-full</title>
+                                <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z"></path>
+                            </svg>                            
+                        </div>
+                        <div class="star nb2">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                                <title>star-full</title>
+                                <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z"></path>
+                            </svg>                            
+                        </div>
+                        <div class="star nb3">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                                <title>star-full</title>
+                                <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z"></path>
+                            </svg>                            
+                        </div>
+                        <div class="star nb4">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                                <title>star-full</title>
+                                <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z"></path>
+                            </svg>                            
+                        </div>
+                        <div class="star nb5">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                                <title>star-full</title>
+                                <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z"></path>
+                            </svg>                            
+                        </div>
+                        <p class="comment-unit" >1148</p>
+                    </div>
+
+                    <div class="Classes-time">
+                        <p class="time-name">課時</p>
+                        <p class="time-unit">20</p>
+                    </div>
+
+                    <div class="Classes-people">
+                        <p class="people-name">同學</p>
+                        <p class="people-unit">16385</p>
+                    </div>
+
+                    <div class="Classes-price">NT$0</div>
+                </div>
+            </div>
+
+            <div class="moreClasses1">更多本週熱門課程</div>
+        </div>
+    </main>
+
+    <!-- ------6-2課程小卡 第2行：最新募資課程 -->
+    <!-- 6-2.下面是 課程小卡的分類標題 -->
+    <main class="container">
+        <div class="row">
+            <div class="Classes-title-left">
+                <img src="./imgs/classes/latest-incubation-png.png" alt="">
+                <p>最新募資課程</p>
+            </div>
+            <div class="Classes-title-right">
+                <a href="">更多募資課程
+                    <!-- <i class="fas fa-arrow-right"></i> -->
+                    <!-- 上面是直接貼Fontawesome的html -->
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M438.6 278.6l-160 160C272.4 444.9 264.2 448 256 448s-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L338.8 288H32C14.33 288 .0016 273.7 .0016 256S14.33 224 32 224h306.8l-105.4-105.4c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160C451.1 245.9 451.1 266.1 438.6 278.6z"/></svg>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- 6-2.下面是 課程小卡的部分 -->
+    <main class="container mb-5">
+        <div class="row justify-content-between">
+            <!-- 下面是 單位的課程小卡N0.1-->
+            <div class="col-12 col-sm-6 col-mg-4 col-lg-3 mb-3 mt-4">
+                <div class="HotClasses HotClasses-Orange">
+                    <div class="Classes-imgwrap">
+                        <!-- 下面是 要做斜角緞帶 -->
+                        <div class="bevel-notes bevel-notes-orange">
+                            <p>募資中</p>
+                        </div>
+                        <img class="Classes-banner" src="./imgs/classes/6207cd7dd1cb9d00070887d0.png" alt="">
+                        <div class="bookmarker">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M384 48V512l-192-112L0 512V48C0 21.5 21.5 0 48 0h288C362.5 0 384 21.5 384 48z"/></svg>
+                        </div>                        
+                    </div>
+                    <div class="author-head">
+                        <img src="./imgs/classes/6014cbcf910e49f59161de9a.png" alt="">
+                    </div>
+                    
+
+                    <div class="Classes-title">
+                        <h4>職場考場都必用！全方位的情境寫作術！</h4>                   
+                    </div>
+                    
+                    <div class="Classes-purchase">                        
+                        <p class="purchase-price">預購價 <span>NT$1,800</span> </p>
+                    </div>
+
+                    <div class="Classes-limittime">
+                        <p class="time-name">剩 28 天</p>
+                    </div>
+
+                    <div class="Classes-fundrasingBar">
+                        <div class="Classes-bar1"></div>
+                        <div class="Classes-bar2"></div>
+                    </div>
+
+                    <div class="Classes-fundrasing">
+                        <p class="people-name">已募資 280%</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 下面是 複製貼上另外橫排的3個課程小卡 -->
+            <!-- No.2 -->
+            <div class="col-12 col-sm-6 col-mg-4 col-lg-3 mb-3 mt-4">
+                <div class="HotClasses HotClasses-Orange">
+                    <div class="Classes-imgwrap">
+                        <!-- 下面是 要做斜角緞帶 -->
+                        <div class="bevel-notes bevel-notes-orange">
+                            <p>募資中</p>
+                        </div>
+                        <img class="Classes-banner" src="./imgs/classes/61f23d9cb0c09a000777d928.png" alt="">
+                        <div class="bookmarker">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M384 48V512l-192-112L0 512V48C0 21.5 21.5 0 48 0h288C362.5 0 384 21.5 384 48z"/></svg>
+                        </div>                        
+                    </div>
+                    <div class="author-head">
+                        <img src="./imgs/classes/5e6f191d024d690024e41fdc.png" alt="">
+                    </div>
+                    
+
+                    <div class="Classes-title">
+                        <h4>短片新手村】零拍攝短影片製作術</h4>                   
+                    </div>
+                    
+                    <div class="Classes-purchase">                        
+                        <p class="purchase-price">預購價 <span>NT$999</span> </p>
+                    </div>
+
+                    <div class="Classes-limittime">
+                        <p class="time-name">剩 20 天</p>
+                    </div>
+
+                    <div class="Classes-fundrasingBar">
+                        <div class="Classes-bar1"></div>
+                        <div class="Classes-bar2"></div>
+                    </div>
+
+                    <div class="Classes-fundrasing">
+                        <p class="people-name">已募資 137%</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- No.3 -->
+            <div class="col-12 col-sm-6 col-mg-4 col-lg-3 mb-3 mt-4">
+                <div class="HotClasses HotClasses-Orange">
+                    <div class="Classes-imgwrap">
+                        <!-- 下面是 要做斜角緞帶 -->
+                        <div class="bevel-notes bevel-notes-orange">
+                            <p>募資中</p>
+                        </div>
+                        <img class="Classes-banner" src="./imgs/classes/620a166fd2c9fe000647e7d5.png" alt="">
+                        <div class="bookmarker">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M384 48V512l-192-112L0 512V48C0 21.5 21.5 0 48 0h288C362.5 0 384 21.5 384 48z"/></svg>
+                        </div>                        
+                    </div>
+                    <div class="author-head">
+                        <img src="./imgs/classes/611a3df8e84e32000626af11.png" alt="">
+                    </div>
+                    
+
+                    <div class="Classes-title">
+                        <h4>個人寫作課：會說就能寫，三種思維提升寫作力</h4>                   
+                    </div>
+                    
+                    <div class="Classes-purchase">                        
+                        <p class="purchase-price">預購價 <span>NT$1,590</span> </p>
+                    </div>
+
+                    <div class="Classes-limittime">
+                        <p class="time-name">剩 19 天</p>
+                    </div>
+
+                    <div class="Classes-fundrasingBar">
+                        <div class="Classes-bar1"></div>
+                        <div class="Classes-bar2"></div>
+                    </div>
+
+                    <div class="Classes-fundrasing">
+                        <p class="people-name">已募資 133%</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- No.4 -->
+            <div class="col-12 col-sm-6 col-mg-4 col-lg-3 mb-3 mt-4">
+                <div class="HotClasses HotClasses-Orange">
+                    <div class="Classes-imgwrap">
+                        <!-- 下面是 要做斜角緞帶 -->
+                        <div class="bevel-notes bevel-notes-orange">
+                            <p>募資中</p>
+                        </div>
+                        <img class="Classes-banner" src="./imgs/classes/620c71d5de9a2c0006951ebd.png" alt="">
+                        <div class="bookmarker">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M384 48V512l-192-112L0 512V48C0 21.5 21.5 0 48 0h288C362.5 0 384 21.5 384 48z"/></svg>
+                        </div>                        
+                    </div>
+                    <div class="author-head">
+                        <img src="./imgs/classes/611ef36a0cba97000751857f.png" alt="">
+                    </div>
+                    
+
+                    <div class="Classes-title">
+                        <h4>知識煉金師帶你「做份好筆記，要事全都記」</h4>                   
+                    </div>
+                    
+                    <div class="Classes-purchase">                        
+                        <p class="purchase-price">預購價 <span>NT$1,499</span> </p>
+                    </div>
+
+                    <div class="Classes-limittime">
+                        <p class="time-name">剩 18 天</p>
+                    </div>
+
+                    <div class="Classes-fundrasingBar">
+                        <div class="Classes-bar1"></div>
+                        <div class="Classes-bar2"></div>
+                    </div>
+
+                    <div class="Classes-fundrasing">
+                        <p class="people-name">已募資 370%</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="moreClasses2">更多最新募資課程</div>
+    </main>
+
+    <!-- ***最後一行的課程小卡 .container加mb-5和下面的延伸閱讀推開距離！！！ -->
+
+
+    <!-- -----7.下面是 延伸閱讀----- -->  
+    <section class="Futher-article">
+        <div class="container">
+            <div class="row">
+                <h4 class="first-maintitle" >延伸閱讀</h4>                
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <!-- 延伸閱讀 文章1 -->
+                <div class="col-12 col-sm-6 col-lg-4 mt-5">
+                    <div class="Articles">
+                        <div class="Article-imgwrap">
+                            <a href="">
+                                <img src="./imgs/FurtherArticles/coursebrief-placeholder-de997eb483efe1c2cc28474c8faefb2b-svg.jpeg" alt="">
+                            </a>
+                        </div>
+
+                        <div class="Article-title">
+                            <a href="">
+                                <h5>不知道要做什麼工作？3 個問題開始設定你的職涯目標！</h5>
+                            </a>
+                        </div>
+
+                        <div class="Article-date">Apr 19, 2021</div>
+                        <div class="Article-intro">
+                            <p>最近常覺得卡關，想改變又不知道要做什麼工作嗎？如果你總是擔憂不知道下一步該往哪裡走，你可以從設定職涯目標、做好規劃等 3 個簡單的問題開始！</p>
+                        </div>
+
+                        <div class="button-wrap">
+                            <a class="button-style" href="">
+                               <p>閱讀更多</p>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- 延伸閱讀 文章2 -->
+                <div class="col-12 col-sm-6 col-lg-4 mt-5">
+                    <div class="Articles">
+                        <div class="Article-imgwrap">
+                            <a href="">
+                                <img src="./imgs/FurtherArticles/60c37f4c1b758e603ce40762.jpeg" alt="">
+                            </a>
+                        </div>
+
+                        <div class="Article-title">
+                            <a href="">
+                                <h5>聽見外國人說英文只能尷尬點頭微笑？三個英文聽力技巧，提升英語即戰力</h5>
+                            </a>
+                        </div>
+
+                        <div class="Article-date">Jun 24, 2021</div>
+                        <div class="Article-intro">
+                            <p>從小英文學到大，碰到外國人還是有聽沒有懂，只能草率回個 "Sorry, I don't understand."。快用三個英文聽力技巧來化解聽不懂的窘境，並幫助自己有效提升英語即戰力！</p>
+                        </div>
+
+                        <div class="button-wrap">
+                            <a class="button-style" href="">
+                               <p>閱讀更多</p>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- 延伸閱讀 文章3 -->
+                <div class="col-12 col-sm-6 col-lg-4 mt-5">
+                    <div class="Articles">
+                        <div class="Article-imgwrap">
+                            <a href="">
+                                <img src="./imgs/FurtherArticles/61cc1809c0c0010007144d63.jpeg" alt="">
+                            </a>
+                        </div>
+
+                        <div class="Article-title">
+                            <a href="">
+                                <h5>日本收納達人——近藤麻理惠：過清爽生活前，你需要具備的五個心態與觀念</h5>
+                            </a>
+                        </div>
+
+                        <div class="Article-date">Feb 9, 2022</div>
+                        <div class="Article-intro">
+                            <p>教你如何選擇留下哪些令自己心動的事物，並捨棄那些你不需要的，近藤麻理惠認為另一個可以幫助自己「朝好好過生活邁進」的理論，便是建立起正確的心態與觀念。</p>
+                        </div>
+
+                        <div class="button-wrap">
+                            <a class="button-style" href="">
+                               <p>閱讀更多</p>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+
+    <!-- 8.下面是 footer -->
+    <footer>
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="about">
+                    <h6>關於</h6>
+                    <ul class="list-unstyled" > 
+                        <li>
+                            <a href="#">關於我們</a>
+                        </li>
+                        <li>
+                            <a href="#">加入 Hahow</a>
+                        </li>
+                        <li>
+                            <a href="#">新聞媒體中心</a>
+                        </li>
+                        <li>
+                            <a href="#">使用者條款</a>
+                        </li>
+                        <li>
+                            <a href="#">服務契約</a>
+                        </li>
+                        <li>
+                            <a href="#">隱私權政策</a>
+                        </li>
+                        <li>
+                            <a href="#">功能更新</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="help">
+                    <h6>幫助</h6>
+                    <ul class="list-unstyled" >
+                        <li>
+                            <a href="#">企業學習方案</a>
+                        </li>
+                        <li>
+                            <a href="#">影音製作服務</a>
+                        </li>
+                        <li>
+                            <a href="#">異業合作洽談</a>
+                        </li>
+                        <li>
+                            <a href="#">常見問題</a>
+                        </li>
+                        <li>
+                            <a href="#">課程許願池</a>
+                        </li>
+                        <li>
+                            <a href="#">兌換課程</a>
+                        </li>
+                        <li>
+                            <a href="#">線上課程禮物卡</a>
+                        </li>
+                        <li>
+                            <a href="#">填課前問卷拿優惠</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="follow">
+                    <h6>追蹤動態</h6>
+                    <ul class="list-unstyled" >
+                        <li>
+                            <a href="#">Facebook</a>
+                        </li>
+                        <li>
+                            <a href="#">Instagram</a>
+                        </li>
+                        <li>
+                            <a href="#">LINE</a>
+                        </li>
+                        <li>
+                            <a href="#">YouTube</a>
+                        </li>
+                        <li>
+                            <a href="#">Blog</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer-item">
+                    <div class="country-and-language d-flex flex-column">
+                        <!-- Large button groups (default and split) -->
+                        <div class="btn-group1">
+                            <button class="btn button-style btn-md dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            輸入地點
+                            </button>
+                            <div class="dropdown-menu menu1">
+                                <p class="dropdown-header">將顯示對應幣別</p>
+                                <a class="dropdown-item" href="#">
+                                    TW 台灣 &nbsp;
+                                    <span class="money" >新台幣 (TWD)</span>
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    HK 香港 &nbsp;
+                                    <span class="money" >港幣 (HKD)</span>
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    MY 馬來西亞 &nbsp;
+                                    <span class="money" >林吉特 (MYR)</span>
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    US 美國 &nbsp;
+                                    <span class="money" >美元 (USD)</span>
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    JP 日本 &nbsp;
+                                    <span class="money" >日圓 (JPY)</span>
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    CN 中國 &nbsp;
+                                    <span class="money" >人民幣 (CNY)</span>
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    MO 澳門 &nbsp;
+                                    <span class="money" >澳門幣 (MOP)</span>
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    SG 新加坡 &nbsp;
+                                    <span class="money" >新幣 (SGD)</span>
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    AU 澳洲 &nbsp;
+                                    <span class="money" >澳幣 (AUD)</span>
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    CA 加拿大 &nbsp;
+                                    <span class="money" >加幣 (CAD)</span>
+                                </a>
+                            </div>
+                        </div>
+                                               
+                         
+                        <div class="btn-group2">
+                            <button class="btn button-style btn-md dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            繁體中文
+                            </button>
+                            <div class="dropdown-menu menu2">
+                                <a class="dropdown-item" href="#">繁體中文</a>
+                                <a class="dropdown-item" href="#">简体中文</a>                                
+                            </div>
+                        </div>
+
+                        <span class="pad-t-10 pad-b-20">Hahow 好學校 © All Rights Reserved.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+    
+
+
+
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script src="./bootstrap-4.2.1-dist/js/bootstrap.bundle.js"></script>
+
+    <script>
+    // -----下面是 輪播牆-------------------------------------
+        // 下面是 點點-----
+        var page = 0;
+        trainliWidth = $('.Week-Class-train li').innerWidth();
+        console.log(trainliWidth,'trainliWidth');
+
+        $('ul.slider-dots li').click(function(){
+            console.log('hello');
+            // console.log('hi', $(this).index() * -900);
+            page = $(this).index();
+
+            Carousel();
+            // $('ul.slider-dots li').eq(page).css('width', '24px').siblings().css('width', '6px');
+            // $('.Week-Class-train').css('transform', `translateX(${page * -900}px)`)
+            // $('.Week-Class-train li').eq(page).css('opacity', '1').siblings().css('opacity', '.3')
+        })
+
+
+        // 下面是 左右箭頭-----
+        $('.btn-left1').click(function(){
+            page--;
+            // console.log('page', page * -900)
+            if (page < 0) {
+                page = 7
+            }
+
+            Carousel();
+            // $('ul.slider-dots li').eq(page).css('width', '24px').siblings().css('width', '6px');
+            // $('.Week-Class-train').css('transform', `translateX(${page * -900}px)`)
+            // $('.Week-Class-train li').eq(page).css('opacity', '1').siblings().css('opacity', '.3')
+        })        
+        
+        $('.btn-right1').click(function(){
+            page++;
+            // console.log('page', page * -900)
+            if (page >=8) {
+                page = 0
+            }
+
+            Carousel();
+            // $('ul.slider-dots li').eq(page).css('width', '24px').siblings().css('width', '6px');
+            // $('.Week-Class-train').css('transform', `translateX(${page * -900}px)`)
+            // $('.Week-Class-train li').eq(page).css('opacity', '1').siblings().css('opacity', '.3')
+        })
+
+        function Carousel() {
+            $('ul.slider-dots li').eq(page).css('width', '24px').siblings().css('width', '6px');
+            $('.Week-Class-train').css('transform', `translateX(${page * -(trainliWidth)}px)`);
+            $('.Week-Class-train li').eq(page).css('opacity', '1').siblings().css('opacity', '.3');
+        };
+
+        $(window).resize(function () {
+            trainliWidth = $('.Week-Class-train li').innerWidth();
+            Carousel();
+            console.log(trainliWidth,'trainliWidth');
+        });
+
+    </script>
+</body>
+</html>
